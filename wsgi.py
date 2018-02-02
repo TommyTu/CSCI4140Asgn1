@@ -39,4 +39,4 @@ html = """
 </html>
 """.format(cgi.escape(date_string), cgi.escape(str(hit_count)))
 
-print header + html
+print (header + html)
