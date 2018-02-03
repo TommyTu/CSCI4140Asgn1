@@ -1,5 +1,4 @@
-import BaseHTTPServer
-import CGIHTTPServer
+import http.server
 import webbrowser
 
 PORT = 8000
@@ -8,8 +7,8 @@ PORT = 8000
 
 script_path = "index.py"
 
-server_class = BaseHTTPServer.HTTPServer
-handler_class = CGIHTTPServer.CGIHTTPRequestHandler
+server_class = http.server.HTTPServer
+handler_class = http.server.CGIHTTPRequestHandler
 server_address = ("", PORT)
 
 httpd = server_class(server_address, handler_class)
