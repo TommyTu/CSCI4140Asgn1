@@ -6,7 +6,7 @@ PORT = 8000
 #TODO: check that port is available,
 # and look for a different one if it isn't.
 
-script_path = "cgi-bin/hit-counter.py"
+script_path = "index.py"
 
 server_class = BaseHTTPServer.HTTPServer
 handler_class = CGIHTTPServer.CGIHTTPRequestHandler
