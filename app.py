@@ -7,7 +7,7 @@ if __name__ == "__main__":
     ip = os.environ['OPENSHIFT_PYTHON_IP']
     port = os.environ['OPENSHIFT_PYTHON_PORT']
     host_name = os.environ['OPENSHIFT_GEAR_DNS']
-    server_address = (host_name, port)
+    server_address = (ip, port)
 
     httpd = server(server_address, handler)
     httpd.serve_forever()
