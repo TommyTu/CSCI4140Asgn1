@@ -9,5 +9,5 @@ if __name__ == "__main__":
     host_name = os.environ['OPENSHIFT_GEAR_DNS']
     server_address = (ip, port)
 
-    httpd = server(server_address, handler)
+    httpd = server(("",8080), handler)
     httpd.serve_forever()
