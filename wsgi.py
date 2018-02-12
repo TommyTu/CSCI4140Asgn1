@@ -1,22 +1,12 @@
-import http.server
-import webbrowser
-
-PORT = 8000
-#TODO: check that port is available,
-# and look for a different one if it isn't.
-
-script_path = "index.py"
-
-server_class = http.server.HTTPServer
-handler_class = http.server.CGIHTTPRequestHandler
-server_address = ("", PORT)
-
-httpd = server_class(server_address, handler_class)
-
-url = 'http://localhost:{0}/{1}'.format(PORT, script_path)
-
-webbrowser.open_new_tab(url)
-
-print ("serving at", url)
-
+import http.server,os
+import cgitb; cgitb.enable()  ## This line enables CGI error reporting
+ 
+server = http.server.HTTPServer
+handler = http.server.CGIHTTPRequestHandler
+ip = os.environ['OPENSHIFT_PYTHON_IP']
+port = os.environ['OPENSHIFT_PYTHON_PORT']
+server_address = (ip, port)
+handler.cgi_directories = ["cgi-bin/"]
+ 
+httpd = server(server_address, handler)
 httpd.serve_forever()
